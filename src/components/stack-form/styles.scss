@@ -1,0 +1,115 @@
+.asset-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .asset-info{
+        display: flex;
+        margin-right: 10px;
+        align-items: center;
+        .asset-logo{
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            overflow: hidden;
+            margin-right: 10px;
+            border: 1px solid #977b11;
+            img{
+                width: 100%;
+                height: 100%; 
+                object-fit: cover;
+            }
+        }
+
+        .asset-title{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e3e3e3;
+            font-family: 'Inter';
+            margin: 0px;
+        }
+
+        .asset-detail{
+            font-size: 12px;
+        }
+    }
+    
+
+    .detail{
+        min-width: 30%;
+        ul{
+            list-style: none;
+            padding: 0px;
+            text-align: right;
+        }
+    }
+}
+
+.stake-card{
+    background: #222122 !important;
+} 
+
+.stake-form{
+    padding: 16px 10px;
+}
+.amount-input {
+    background: #000;
+    padding: 5px 8px;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    border:1px solid transparent;
+    &__field{
+        background: transparent;
+        border: 0px;
+        font-weight: 300;
+        font-size: 16px;
+        padding: 5px;
+        display: block;
+        width: 100%;
+        color: #fff;
+        font-family: 'Inter';
+
+        &:focus, &:focus-visible{
+            background: transparent;
+            border: 0px;
+            outline: none;
+        }
+
+        
+    }
+    &:focus-within{
+      box-shadow: 1px 1px 1px 1px #fece026b;
+    }
+
+    .alt-addon{
+        margin: 5px 10px;
+        font-weight: 700;
+        font-family: 'Inter';
+        border-left: 1px solid rgba(255,255,255,.2);
+        padding-left: 15px;
+        color: whitesmoke;
+    }
+}
+
+.wallet-info{
+    margin-bottom: 1rem;
+}
+
+.text-label{
+    color: #9e9e9e;
+    font-size: 12px;
+}
+
+.balance-amount{
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+
+    .balance-name{
+        font-size: 12px;
+        font-weight: 600;
+        display: inline;
+    }
+}

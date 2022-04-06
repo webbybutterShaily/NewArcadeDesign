@@ -1,0 +1,49 @@
+{
+    "menu":{
+        "dashboard": "डैशबोर्ड",
+        "mission_pool": "मिशन पूल",
+        "single_asset_staking": "सिंगल एसेट स्टेकिंग",
+        "swap":"विनिमय",
+        "rewards":"पुरस्कार",
+        "warchest":"युद्ध के लिए जमा पूंजी",
+        "rankings":"रैंकिंग"
+    },
+    "pages":{
+        "dashboard":{
+            "html_page_title": "",
+            "dashboard_title": "",
+            "active_pool_mission_title":"",
+            "mission_pool_details_link": "",
+            "wallet_header": "",
+            "rewards_header": "",
+            "arcade_token_header":"",
+            "bonus_pool_rankings_header":"",
+            "wallet_address": "",
+            "wallet_balance": "",
+            "wallet_deposit":"",
+            "wallet_withdraw":"",
+            "wallet_send": "",
+            "rewards_balance":"",
+            "rewards_withdraw_button":""
+        },
+        "mission_pools":{
+            "html_page_title": "",
+            "mission_pool_title": "",
+            "enter_pool_button": "",
+            "sponsored_by_label": "",
+            "pool_size_label": "",
+            "duration_label": "",
+            "expecited_rewards_label":"",
+            "reward_range": ""
+        },
+        "single_asset_staking":{
+            "html_page_title":"",
+            "single_asset_staking_title":"",
+            "swap_from_label": "",
+            "swap_to_label": "",
+            "swap_balance_label":"",
+            "swap_slippage": "",
+            "swap_button": ""
+        }
+    }
+}

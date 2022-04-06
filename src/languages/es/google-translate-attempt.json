@@ -1,0 +1,49 @@
+{
+    "menu":{
+        "dashboard": "Tablero de Mandos",
+        "mission_pool": "Grupos de Misiones",
+        "single_asset_staking": "Obtener xArcade",
+        "swap":"Intercambio",
+        "rewards":"Recompensas",
+        "warchest":"Tesoro de Guerra",
+        "rankings":"Clasificaciones"
+    },
+    "pages":{
+        "dashboard":{
+            "html_page_title": "Tablero de Mandos",
+            "dashboard_title": "Mi Tablero",
+            "active_pool_mission_title":"Grupos de Misiones Activas",
+            "mission_pool_details_link": "Detalles",
+            "wallet_header": "Billetera",
+            "rewards_header": "Centro de Recompensas",
+            "arcade_token_header":"Economía Arcade",
+            "bonus_pool_rankings_header":"Clasificaciones del grupo de bonificación",
+            "wallet_address": "",
+            "wallet_balance": "",
+            "wallet_deposit":"",
+            "wallet_withdraw":"",
+            "wallet_send": "",
+            "rewards_balance":"",
+            "rewards_withdraw_button":""
+        },
+        "mission_pools":{
+            "html_page_title": "",
+            "mission_pool_title": "",
+            "enter_pool_button": "",
+            "sponsored_by_label": "",
+            "pool_size_label": "",
+            "duration_label": "",
+            "expecited_rewards_label":"",
+            "reward_range": ""
+        },
+        "single_asset_staking":{
+            "html_page_title":"",
+            "single_asset_staking_title":"",
+            "swap_from_label": "",
+            "swap_to_label": "",
+            "swap_balance_label":"",
+            "swap_slippage": "",
+            "swap_button": ""
+        }
+    }
+}
