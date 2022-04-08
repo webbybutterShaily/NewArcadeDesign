@@ -1,0 +1,424 @@
+$primary-color: #fff !default;
+$accent-color: #f2ec0d !default;
+
+$bg-primary: #fece02;
+
+body {
+    background-color: #000;
+    color: $primary-color;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #fae053;
+    }
+}
+a {
+    color: $primary-color;
+    text-decoration: none;
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Inter", Sans-serif;
+}
+
+.main-wrapper {
+    z-index: 1;
+    min-height: 100vh;
+    // position: relative;
+
+    #coinmarketcap-widget-marquee {
+        position: fixed;
+        bottom: 0%;
+        background-color: black;
+    }
+}
+.main-bg-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    // background-image: url(../images/blur3.png);
+    background-position: center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: -1;
+}
+/** TOP HEADER BAR **/
+.topbar {
+    display: flex;
+    padding: 10px 16px;
+    .topbar-nav > li {
+        min-height: 60px;
+    }
+    > .brand {
+        text-align: center;
+        height: calc(60px + 1px);
+        width: 160px;
+
+        border-bottom: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        .logo {
+            line-height: 60px;
+
+            .logo-sm {
+                height: 60px;
+            }
+        }
+    }
+
+    .navbar-custom {
+        margin-left: 0;
+        width: 100%;
+        border-bottom: none;
+        min-height: 60px;
+        position: relative;
+        .navbar-custom-menu {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+#navigation {
+    display: flex;
+    justify-content: end;
+}
+
+.navigation-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
+    > .nav-item {
+        display: inline-block;
+        position: relative;
+        .nav-link {
+            color: $primary-color;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            min-height: 60px;
+            align-items: center;
+            transition: 0.4s;
+            font-family: "Inter", Sans-serif;
+            &:hover,
+            &.active {
+                color: $accent-color;
+            }
+            &:hover {
+                transform: translateY(-8px);
+            }
+
+            @media screen and (max-width: 1200px) {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+/** page-wrapper **/
+.hero-page-title-section {
+    margin: 50px 10px;
+
+    .page-title {
+        text-align: center;
+        font-weight: 600;
+        text-shadow: 2px 1px #8355ff;
+        font-size: 2.8rem;
+    }
+}
+/** content-wrapper**/
+
+.content-wrapper {
+    width: 100%;
+    position: relative;
+    padding: 10px 20px 35px;
+}
+
+/** shadow card **/
+.shadow-widget {
+    background-color: rgb(27 3 38 / 38%);
+    box-shadow: 0 0 11px 1px rgb(122 69 129 / 0.29);
+    border: 0px;
+    // min-height: 350px;
+}
+
+.hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    &__slide-up {
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+.card-header-title {
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+.text-gradient {
+    background-image: linear-gradient(90deg, #936cfe 0, #f972b0 39%, #f9ca00) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.btn-action {
+    background-color: $bg-primary;
+    color: #000;
+    border: 0px;
+    font-weight: 700;
+    font-family: "Inter", Sans-serif;
+    border-radius: 50px;
+    padding: 5px 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    svg {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        // background-color: rgba(0,0,0,.6);
+        color: #000;
+        box-shadow: 0px 2px 4px 0px rgb(254 206 2 / 79%);
+        transform: scale(1.1);
+    }
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.home-widget-bottom {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.text-link {
+    color: #fece04;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Inter";
+}
+
+.dashboard-widget-body {
+    padding: 10px;
+
+    .list-item {
+        margin-bottom: 10px;
+
+        .list-label {
+            color: #c0c5cb;
+            font-family: "Inter";
+            font-size: 14px;
+        }
+
+        .list-value {
+            font-size: 18px;
+            font-family: "Inter";
+            .balance-text {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.arrow_box {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+    border-radius: 10px;
+    min-width: 75px;
+    .title {
+        font-size: 9px;
+        font-weight: 600;
+    }
+    .value {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    // border: 2px solid #000000;
+}
+//   .arrow_box:after, .arrow_box:before {
+//     right: 100%;
+//     top: 50%;
+//     border: solid transparent;
+//     content: " ";
+//     height: 0;
+//     width: 0;
+//     position: absolute;
+//     pointer-events: none;
+//   }
+
+//   .arrow_box:after {
+//     // border-color: rgba(85, 85, 85, 0);
+//     border-right-color: rgba(0,0,0,.4);
+//     border-width: 10px;
+//     margin-top: -10px;
+//   }
+//   .arrow_box:before {
+//     border-color: rgba(0, 0, 0, 0);
+//     border-right-color: rgba(0,0,0,.4);
+//     border-width: 13px;
+//     margin-top: -13px;
+//   }
+
+#chart .apexcharts-tooltip {
+    color: #fff;
+    transform: translateX(10px) translateY(10px);
+    overflow: visible !important;
+    white-space: normal !important;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0px;
+}
+
+#chart .apexcharts-tooltip span {
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.bm-burger-button {
+    width: 30px;
+    position: relative;
+    height: 20px;
+    align-self: center;
+    margin: 20px;
+    position: absolute;
+    margin-top: 30px;
+    right: 15px;
+    z-index: 1 !important;
+
+    @media screen and (min-width: 992px) {
+        display: none;
+    }
+
+    .bm-burger-bars {
+        background-color: #fff;
+    }
+}
+
+.header-action {
+    margin-right: 0px;
+    @media screen and (max-width: 992px) {
+        margin-right: 60px;
+    }
+}
+
+.bm-menu {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+
+    .bm-item-list {
+        a {
+            font-weight: 600;
+            padding: 0.8em;
+        }
+    }
+}
+
+.bm-cross {
+    background-color: #fff;
+}
+
+.bm-overlay {
+    display: none;
+    @media screen and (max-width: 992px) {
+        display: block;
+    }
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.gradient-card {
+    padding: 1px;
+
+    // background-image: linear-gradient(
+    //     90deg,#936cfe 0,#f972b0 39%,#f9ca00)!important;
+    background-image: linear-gradient(90deg, #936cfe75 0, #f972b0b5 39%, #f9ca003d) !important;
+
+    .card-body {
+        background-color: #131a35;
+        border-radius: 4px;
+    }
+}
+
+.inline-option {
+    .label-option {
+        display: inline-block;
+        margin-left: 10px;
+        background-color: #000829;
+        color: #f1f1f2;
+        padding: 5px 10px;
+        border: 0;
+        border-radius: 4px;
+        font-size: 10px;
+        line-height: 20px;
+        font-weight: 600;
+        min-width: 40px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        &.active {
+            border-color: rgb(254 206 4 / 74%);
+        }
+    }
+
+    .input-grouped {
+        input {
+            background: transparent;
+            border: 0px;
+            outline: 0px;
+            font-size: 10px;
+            line-height: 20px;
+            font-weight: 600;
+            width: 50px;
+            color: #f1f1f2;
+            &:focus,
+            &:focus-visible {
+                border: 0px;
+                outline: 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 447px) {
+    .nav-link.btn-action {
+        font-size: 11px;
+    }
+
+    .topbar > .brand {
+        width: 60px;
+        .logo .logo-sm {
+            height: 35px;
+        }
+    }
+}

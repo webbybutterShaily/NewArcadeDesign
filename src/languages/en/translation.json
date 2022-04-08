@@ -1,0 +1,49 @@
+{
+    "menu":{
+        "dashboard": "Dashboard",
+        "mission_pool": "Mission Pools",
+        "single_asset_staking": "Single Asset Staking",
+        "swap":"Swap",
+        "rewards":"Rewards",
+        "warchest":"Warchest",
+        "rankings":"Rankings"
+    },
+    "pages":{
+        "dashboard":{
+            "html_page_title": "Dashboard",
+            "--------dashboard_title": "My Dashboard",
+            "active_pool_mission_title":"Active Mission Pools",
+            "mission_pool_details_link": "Details",
+            "wallet_header": "Wallet",
+            "rewards_header": "Rewards Center",
+            "----arcade_token_header":"Arcade Tokenomics",
+            "bonus_pool_rankings_header":"Bonus Pool Rankings",
+            "----wallet_address": "Address",
+            "---wallet_balance": "Balance",
+            "----wallet_deposit":"Deposit",
+            "----wallet_withdraw":"Withdraw",
+            "----wallet_send": "Send",
+            "rewards_balance":"Rewards Balance",
+            "rewards_withdraw_button":"Claim Rewards"
+        },
+        "mission_pools":{
+            "html_page_title": "Mission Pools",
+            "---mission_pool_title": "Mission Pools",
+            "enter_pool_button": "Enter Pool",
+            "sponsored_by_label": "Sponsored By",
+            "pool_size_label": "Pool Size",
+            "duration_label": "Duration",
+            "expecited_rewards_label":"Expected Rewards",
+            "----reward_range": "Reward Range"
+        },
+        "single_asset_staking":{
+            "html_page_title":"S.A.S",
+            "---single_asset_staking_title":"Single Asset Staking",
+            "swap_from_label": "From",
+            "swap_to_label": "To",
+            "swap_balance_label":"Balance",
+            "swap_slippage": "Slippage Tolerance",
+            "swap_button": "Swap"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+.dataTables_wrapper{
+    color:#fff;
+}
+
+.dataTables_length, .dataTables_filter{
+    label{
+        color: #fff;
+        font-weight: 700;
+        font-family: 'Inter';
+
+        input, select{
+            background-color: #fff !important;
+            color: #0c0c0c;
+            outline: none;
+            border: 0px !important;
+            border-radius: 10px !important;
+            font-weight: 600;
+            font-family: 'Inter';
+        }
+    }
+}
+
+.dataTable{
+    
+    padding-top: 37px !important;
+    padding-top: 37px !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+    thead{ 
+        > tr{
+            >th {
+                color: #fff;
+                font-weight: 600;
+                font-family: 'Inter';
+                font-size: 18px;
+                background-color: #0A0A0A;
+            }
+        }
+    }
+
+    tbody{
+        >tr > td {
+            font-family: "Inter",Sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 10px 10px 10px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            border-color: #ccc;
+        }
+    }
+}
+
+.paginate_button{
+    
+    border-radius: 10px !important;
+    font-weight: 600;
+    border: 0px !important;
+    
+    &:not(.disabled){
+        background: #fff;
+        color:#fece04 !important;
+        &:hover{
+            background: #fece04 !important;
+        }
+    }
+    &.current{
+        background: #fece04 !important;
+    }
+
+    &.disabled{
+        background: #ddd !important;
+    }
+}

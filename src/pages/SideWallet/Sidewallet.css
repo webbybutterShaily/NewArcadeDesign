@@ -1,0 +1,70 @@
+body {
+    color: #f0f8ff;
+}
+
+.bgcol {
+    background: radial-gradient(100.28% 66.2% at 50% 100%, rgba(73, 51, 111, .74) 0, rgba(73, 51, 111, .2) 49.61%, rgba(73, 51, 111, .03) 100%), #2e2a35;
+    ;
+}
+
+.first {
+    color: #A3ABB0;
+}
+
+.second {
+    background-color: #1F2127;
+    color: #A3ABB0;
+}
+
+.shape {
+    background-color: #4B4557;
+    border-radius: 50%;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    margin: 5px auto;
+    /* padding: 10px; */
+}
+
+.polygon-circle {
+    align-items: center;
+    background: #8247e5;
+    border-radius: 50px;
+    display: flex;
+    height: 33px;
+    justify-content: center;
+    width: 33px;
+}
+
+.polygon-circle img {
+    height: 17px;
+}
+
+.currency {
+    color: #f0f8ff;
+    font-size: 19px;
+    letter-spacing: .075px;
+    line-height: 1rem;
+    text-align: start;
+}
+
+.hyphen-balance-sidebar .weth-balance .balance .weth-balance-part .chain {
+    color: rgba(240, 248, 255, .24);
+    font-size: 10px;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+.span1 {
+    background-color: yellow;
+    color: black;
+}
+
+img.icon {
+    opacity: .64;
+}
+
+button.accordion-button.second {
+    background-color: #1e2128;
+}
+.address:hover{cursor: pointer;}
