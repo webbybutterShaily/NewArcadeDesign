@@ -46,11 +46,10 @@ const Header = ({ t }) => {
   ];
 
   return (
-    <div className="" style={{ borderBottom: "0.5px solid #e019f9" }}>
-      <div className="row row-cols-1">
-        <div className="col-3 p-0">
-          {" "}
-          <div className="brand d-flex justify-content-center h-100">
+    <div className="container-fluid border-bottom-violet" >
+      <div className="row ">
+        <div className="col max-width-20 py-2">
+          <div className="brand d-flex justify-content-center h-100 ">
             <a href="#" className="logo d-flex align-items-center">
               <span>
                 <img
@@ -59,30 +58,27 @@ const Header = ({ t }) => {
                   //className="logo-sm"
                 />
               </span>
-              <span className="fw-bold ms-2" style={{ color: "#fece02" }}>
+              <span className="fw-bold ms-2 " style={{ color: "#fece02" }}>
                 ARCADE
               </span>
             </a>
           </div>
         </div>
-        <div className="col-sm-9">
+        <div className="col text-uppercase fw-bold" style={{ height: 'inherit' }}>
           {/* <div id="navigation"> */}
           <div
-            className="row row-cols-6 "
+            className="row  h-100 "
             style={{ width: "-webkit-fill-available" }}
           >
             <div
-              className="col  p-0"
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col h-100  p-0 border-left-violet"
             >
               <NavLink
                 to="/"
-                className={`nav-link text-center fs-6`}
+                className={`nav-link font-12  h-100 d-flex align-items-center justify-content-center`}
                 exact
                 style={({ isActive }) => ({
-                  color: isActive ? "#ffffff" : "#e019f9",
+                  color: isActive ? "#411565" : "#e019f9",
                   background: isActive ? "#e019f9" : null,
                 })}
               >
@@ -92,14 +88,11 @@ const Header = ({ t }) => {
               </NavLink>
             </div>
             <div
-              className="col p-0"
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col p-0 border-left-violet"
             >
               <NavLink
                 to="/mission-pools"
-                className={`nav-link text-center fs-6`}
+                className={`nav-link font-12  h-100 d-flex align-items-center justify-content-center`}
                 exact
                 style={({ isActive }) => ({
                   color: isActive ? "#ffffff" : "#e019f9",
@@ -111,14 +104,11 @@ const Header = ({ t }) => {
             </div>
 
             <div
-              className="col  p-0"
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col  p-0 border-left-violet"
             >
               <a
                 href="https://raydium.io/swap/"
-                className={`nav-link text-center fs-6`}
+                className={`nav-link font-12  h-100 d-flex align-items-center justify-content-center`}
                 activeClassName="active"
                 style={{ color: "#e019f9" }}
               >
@@ -127,14 +117,11 @@ const Header = ({ t }) => {
             </div>
 
             <div
-              className="col  p-0"
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col  p-0 border-left-violet"
             >
               <NavLink
                 to="/warchest"
-                className={`nav-link text-center fs-6`}
+                className={`nav-link font-12  h-100 d-flex align-items-center justify-content-center`}
                 exact
                 style={({ isActive }) => ({
                   color: isActive ? "#ffffff" : "#e019f9",
@@ -145,14 +132,11 @@ const Header = ({ t }) => {
               </NavLink>
             </div>
             <div
-              className="col  p-0"
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col  p-0 border-left-violet"
             >
               <NavLink
                 to="/ranking"
-                className={`nav-link text-center fs-6`}
+                className={`nav-link font-12  h-100 d-flex align-items-center justify-content-center`}
                 exact
                 style={({ isActive }) => ({
                   color: isActive ? "#ffffff" : "#e019f9",
@@ -163,13 +147,10 @@ const Header = ({ t }) => {
               </NavLink>
             </div>
             <div
-              className="col  "
-              style={{
-                borderLeft: "0.5px solid #e019f9",
-              }}
+              className="col-1 border-left-violet h-100 d-flex align-items-center justify-content-center"
             >
               <button
-                className="purple border-0"
+                className="purple border-0  "
                 style={{ backgroundColor: "transparent" }}
                 type="button"
                 data-bs-toggle="offcanvas"

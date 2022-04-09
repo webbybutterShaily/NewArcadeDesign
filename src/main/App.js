@@ -9,9 +9,9 @@ import "../assets/images/blur3.png";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import styled from "styled-components";
 
-const AppBg = styled.div`
-  background-image: url(/assets/images/blur3.png);
-`;
+// const AppBg = styled.div`
+//   background: url(/assets/images/blur3.png);
+// `;
 
 const App = () => {
   useEffect(() => {
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <AppBg className="main-bg-overlay" />
+      {/* <AppBg className="main-bg-overlay" /> */}
       <div className="main-wrapper" id="outer-wrapper">
         <WalletModalProvider>
           <MobileMenu />

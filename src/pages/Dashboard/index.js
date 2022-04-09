@@ -31,6 +31,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Sidebar from "../../components/sidebar";
 
 const sliderSettings = {
   dots: false,
@@ -256,9 +257,9 @@ const Dashboard = (props) => {
     if (resp.error) {
       throw new Error(
         "failed to get token accounts owned by " +
-          publicKey.toBase58() +
-          ": " +
-          resp.error.message
+        publicKey.toBase58() +
+        ": " +
+        resp.error.message
       );
     }
 
@@ -383,389 +384,214 @@ const Dashboard = (props) => {
 
   return (
     // <Page title={t("pages.dashboard.html_page_title")}>
-    <div className="row row-cols-1 row-cols-sm-2">
-      <div
-        className="col col-sm-3 p-0"
-        style={{ borderRight: "0.5px solid #e019f9" }}
-      >
-        <div className="row row-cols-1 m-0">
-          {/* Wallet */}
-          <div
-            className="col p-0"
-            style={{ borderBottom: '"0.5px solid #e019f9"' }}
-          >
-            <div className="card shadow-widget h-100">
-              <div className="card-body m-4">
-                <div className="d-flex flex-column">
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{ color: "#fece02" }}
-                  >
-                    <p className="fs-6">Wallet</p>
-                    <p style={{ fontSize: "10px" }}>
-                      <u>Wallet Address</u>
-                    </p>
-                  </div>
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{
-                      borderBottom: "0.5px solid #473954",
-                      color: "#473954",
-                    }}
-                  >
-                    <div>
-                      {" "}
-                      <p className="tet-secondary" style={{ fontSize: "10px" }}>
-                        ARCADE Balance
-                      </p>
-                      <h5 className="text-light">$5,208.11</h5>
-                    </div>{" "}
-                    <p
-                      className="tet-secondary align-self-end"
-                      style={{ fontSize: "10px" }}
-                    >
-                      ARCADE
-                    </p>
-                  </div>
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{
-                      color: "#473954",
-                    }}
-                  >
-                    <div>
-                      {" "}
-                      <p className="tet-secondary" style={{ fontSize: "10px" }}>
-                        xARCADE Balance
-                      </p>
-                      <h5 className="text-light">$621,023</h5>
-                    </div>{" "}
-                    <p
-                      className="tet-secondary align-self-end"
-                      style={{ fontSize: "10px" }}
-                    >
-                      XARCADE
-                    </p>
-                  </div>
-                </div>
 
-                <div className="dashboard-widget-body">
-                  <div className="list-item">
-                    <button
-                      className="btn btn-primary btn-action"
-                      style={{
-                        width: "100%",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        padding: "1rem",
-                      }}
-                      onClick={() =>
-                        window.open(
-                          "https://ftx.us/pay/request?address=RCade47ZKErNcQB1CgkpEZUEmyfsqi2qh21mSCWASgm&tag=&wallet=sol&memoIsRequired=false&memo=&allowTip=true",
-                          "_blank",
-                          "resizable,width=700,height=900"
-                        )
-                      }
-                    >
-                      Buy Arcade with FTX US
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Reward Center */}
-          <div className="col p-0" style={{ borderTop: "0.5px solid #e019f9" }}>
-            <div className="card shadow-widget h-100">
-              <div className="card-body m-4">
-                <div className="d-flex flex-column">
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{ color: "#fece02" }}
-                  >
-                    <p className="fs-6">Reward Center</p>
-                  </div>
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{
-                      borderBottom: "0.5px solid #473954",
-                      color: "#473954",
-                    }}
-                  >
-                    <div>
-                      {" "}
-                      <p className="tet-secondary" style={{ fontSize: "10px" }}>
-                        Reward Balance
-                      </p>
-                      <h5 className="text-light">$5,208.11</h5>
-                    </div>{" "}
-                    <p
-                      className="tet-secondary align-self-end"
-                      style={{ fontSize: "10px" }}
-                    >
-                      ARCADE
-                    </p>
-                  </div>
-                  <div
-                    className="d-flex justify-content-between p-1"
-                    style={{
-                      color: "#473954",
-                    }}
-                  >
-                    <div>
-                      {" "}
-                      <p className="tet-secondary" style={{ fontSize: "10px" }}>
-                        Total Rewards Earned
-                      </p>
-                      <h5 className="text-light">$621,023</h5>
-                    </div>{" "}
-                    <p
-                      className="tet-secondary align-self-end"
-                      style={{ fontSize: "10px" }}
-                    >
-                      XARCADE
-                    </p>
-                  </div>
-                </div>
-
-                <div className="dashboard-widget-body">
-                  <div className="list-item">
-                    <button
-                      className="btn btn-primary btn-action"
-                      style={{
-                        width: "100%",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        padding: "1rem",
-                      }}
-                      onClick={() =>
-                        window.open(
-                          "https://ftx.us/pay/request?address=RCade47ZKErNcQB1CgkpEZUEmyfsqi2qh21mSCWASgm&tag=&wallet=sol&memoIsRequired=false&memo=&allowTip=true",
-                          "_blank",
-                          "resizable,width=700,height=900"
-                        )
-                      }
-                    >
-                      Claim Rewards
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="container-fluid">
+      <div className="row  ">
+        <div
+          className="col max-width-20 p-0 border-right-violet"
+        >
+          <Sidebar />
         </div>
-      </div>
-      <div className="col col-sm-9 p-0 ">
-        <div className="row row-cols-1 m-0">
-          <div className="col ps-0">
-            <div className="row row-cols-2 m-0">
-              <div
-                className="col p-4"
-                style={{
-                  borderBottom: "0.5px solid #e019f9",
-                  borderRight: "0.5px solid #e019f9",
-                }}
-              >
-                <div className="d-flex justify-content-between">
-                  <div style={{ color: "#e019f9" }}>
-                    <p>Mission Pool Count</p>
-                    <h1 className="fw-bold">9</h1>
+        <div className="col p-0 " style={{ width: '77%' }}>
+          <div className="row row-cols-1 m-0">
+            <div className="col px-0 border-bottom-violet">
+              <div className="row  m-0">
+                <div
+                  className="col border-right-violet" style={{ maxWidth: '46%', padding: '2.2rem' }}
+                >
+                  <div className="d-flex justify-content-between">
+                    <div style={{ color: "#e019f9" }}>
+                      <div >Mission Pool Count</div>
+                      <h1 className=" mb-0" style={{ fontSize: '5em' }}>9</h1>
+                    </div>
+                    <div className="align-self-end" style={{ fontSize: '12px' }}>MISSIONS</div>
                   </div>
-                  <p className="align-self-end">MISSIONS</p>
                 </div>
-              </div>
-              <div
-                className="col p-4"
-                style={{
-                  borderBottom: "0.5px solid #e019f9",
-                  borderRight: "0.5px solid #e019f9",
-                }}
-              >
-                <div className="d-flex justify-content-between">
-                  <div style={{ color: "#e019f9" }}>
-                    <p>Mission Pool Count</p>
-                    <h1 className="fw-bold">915454</h1>
+                <div
+                  className="col border-right-violet" style={{ padding: '2.2rem' }}
+                >
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div style={{ color: "#e019f9" }}>
+                      <div >Total xArcade Locked</div>
+                      <h1  style={{ fontSize: '5em' }}>915,454</h1>
+                    </div>
+                    <img
+                      src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                      alt="failed to laod logo images"
+                      style={{ width: "5rem", height: "5rem" }}
+                    />
                   </div>
-                  <img
-                    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-                    alt="failed to laod logo images"
-                    style={{ width: "5rem", height: "5rem" }}
-                  />
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            className="col p-3"
-            style={{ borderBottom: "0.5px solid #e019f9" }}
-          >
-            <div className="m-2">
-              <div className="d-flex justify-content-between">
-                <span style={{ color: "#e019f9" }}>Active Mission Pools</span>
-                <div>
-                  {" "}
-                  <button
-                    style={{ background: "transparent", border: "none" }}
-                    onClick={() => slider?.current?.slickPrev()}
-                  >
-                    <i
-                      class="bi bi-chevron-left"
-                      style={{ color: "#fece02" }}
-                    ></i>
-                  </button>
-                  <button
-                    style={{ background: "transparent", border: "none" }}
-                    onClick={() => slider?.current?.slickNext()}
-                  >
-                    <i
-                      class="bi bi-chevron-right"
-                      style={{ color: "#fece02" }}
-                    ></i>
-                  </button>
-                </div>
-              </div>
-
-              <Slider ref={slider} {...sliderSettings}>
-                {ArcadeMissions.map((item, index) => (
-                  <div className="m-2">
-                    <div
-                      class="card"
-                      style={{
-                        width: "15rem",
-                        borderRadius: "0.5rem",
-                        border: "1px solid #e019f9",
-                      }}
-                      key={index}
+            <div
+              className="col p-3"
+            >
+              <div className="m-3">
+                <div className="d-flex justify-content-between mb-4">
+                  <span style={{ color: "#e019f9" }}>Active Mission Pools</span>
+                  <div>
+                    {" "}
+                    <button
+                      style={{ background: "transparent", border: "none" }}
+                      onClick={() => slider?.current?.slickPrev()}
                     >
-                      <div className="">
-                        <img
-                          src="https://cdn.pixabay.com/photo/2021/11/13/23/06/tree-6792528__340.jpg"
-                          class="card-img-top"
-                          style={{
-                            borderBottom: "1px  solid #e019f9",
-                            borderTopLeftRadius: "0.5rem",
-                            borderTopRightRadius: "0.5rem",
-                          }}
-                          alt="..."
-                        />
-                        <button
-                          className="bg-transparent"
-                          type="button"
-                          style={{ zIndex: "10", position: "absolute" }}
-                        >
-                          {" "}
-                          Details
-                        </button>
-                      </div>
+                      <i
+                        class="bi bi-chevron-left"
+                        style={{ color: "#fece02" }}
+                      ></i>
+                    </button>
+                    <button
+                      style={{ background: "transparent", border: "none" }}
+                      onClick={() => slider?.current?.slickNext()}
+                    >
+                      <i
+                        class="bi bi-chevron-right"
+                        style={{ color: "#fece02" }}
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+
+                <Slider ref={slider} {...sliderSettings}>
+                  {ArcadeMissions.map((item, index) => (
+                    <div className="">
                       <div
-                        class="card-body p-0"
+                        class="card me-4"
                         style={{
-                          backgroundColor: "#140024",
-                          borderBottomLeftRadius: "0.5rem",
-                          borderBottomRightRadius: "0.5rem",
+                          // width: "15rem",
+                          borderRadius: "0.5rem",
+                          border: "1px solid #e019f9",
+
                         }}
+                        key={index}
                       >
-                        <div
-                          className="p-1"
-                          style={{ borderBottom: "1px  solid #e019f9" }}
-                        >
-                          <p
-                            className="text-secondary mb-0"
-                            style={{ fontSize: "10px" }}
+                        <div className="position-relative">
+                          <img
+                            src="https://cdn.pixabay.com/photo/2021/11/13/23/06/tree-6792528__340.jpg"
+                            class="card-img-top"
+                            style={{
+                              borderBottom: "1px  solid #e019f9",
+                              borderTopLeftRadius: "0.5rem",
+                              borderTopRightRadius: "0.5rem",
+                            }}
+                            alt="..."
+                          />
+                          <button
+                            className="bg-transparent details-btn px-3"
+                            type="button"
                           >
-                            Missions
-                          </p>
-                          <span style={{ color: "#fece02", fontSize: "14px" }}>
-                            Fimbul Ecos Tree Arrow Ship Mission
-                          </span>
+                            Details
+                          </button>
                         </div>
-                        <div className="d-flex p-1">
-                          <span
-                            className="p-1"
-                            style={{ borderRight: "1px solid #e019f9" }}
+                        <div
+                          class="card-body p-0"
+                          style={{
+                            backgroundColor: "#140024",
+                            borderBottomLeftRadius: "0.5rem",
+                            borderBottomRightRadius: "0.5rem",
+                          }}
+                        >
+                          <div
+                            className="p-2 ps-3"
+                            style={{ borderBottom: "1px  solid #e019f9" }}
                           >
                             <p
                               className="text-secondary mb-0"
                               style={{ fontSize: "10px" }}
                             >
-                              Pool Size
+                              Mission
                             </p>
-                            <span
-                              className="text-white"
-                              style={{ fontSize: "14px" }}
-                            >
-                              8000
+                            <span style={{ color: "#fece02", fontSize: "14px" }}>
+                              Fimbul Ecos Tree Arrow Ship Mission
                             </span>
-                          </span>
-                          <span
-                            className="p-1"
-                            style={{ borderRight: "1px solid #e019f9" }}
-                          >
-                            <p
-                              className="text-secondary mb-0"
-                              style={{ fontSize: "10px" }}
+                          </div>
+                          <div className="row m-0">
+                            <div
+                              className="p-2 ps-3 col-3"
+                              style={{ borderRight: "1px solid #e019f9" }}
                             >
-                              Durations
-                            </p>
-                            <span
-                              className="text-white"
-                              style={{ fontSize: "14px" }}
+                              <p
+                                className="text-secondary mb-0"
+                                style={{ fontSize: "10px" }}
+                              >
+                                Pool Size
+                              </p>
+                              <span
+                                className="text-white"
+                                style={{ fontSize: "14px" }}
+                              >
+                                8000
+                              </span>
+                            </div>
+                            <div
+                              className="p-2 ps-3 col-3"
+                              style={{ borderRight: "1px solid #e019f9" }}
                             >
-                              4 days
-                            </span>
-                          </span>
-                          <span className="p-1">
-                            <p
-                              className="text-secondary mb-0"
-                              style={{ fontSize: "10px" }}
-                            >
-                              Expected Rewards
-                            </p>
-                            <span
-                              className="text-white"
-                              style={{ fontSize: "14px" }}
-                            >
-                              480 ATLAS
-                            </span>
-                          </span>
+                              <p
+                                className="text-secondary mb-0"
+                                style={{ fontSize: "10px" }}
+                              >
+                                Durations
+                              </p>
+                              <span
+                                className="text-white"
+                                style={{ fontSize: "14px" }}
+                              >
+                                4 days
+                              </span>
+                            </div>
+                            <div className="p-2 ps-3 col-6">
+                              <p
+                                className="text-secondary mb-0"
+                                style={{ fontSize: "10px" }}
+                              >
+                                Expected Rewards
+                              </p>
+                              <span
+                                className="text-white"
+                                style={{ fontSize: "14px" }}
+                              >
+                                480 ATLAS
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </Slider>
+                  ))}
+                </Slider>
 
-              <DemoBalanceContext.Provider
-                value={{
-                  ArcadeRewards,
-                  ArcadeTokenAccounts,
-                  setArcadeRewards,
-                  setArcadeTokenAccounts,
-                  getAccountBalances,
-                }}
-              >
-                <MissionItemModal
-                  t={t}
-                  data={MissionState}
-                  account={{
-                    arcade: ArcadeTokenAccounts.arcade,
-                    xarcade: ArcadeTokenAccounts.xarcade,
-                    rewards: ArcadeRewards,
+                <DemoBalanceContext.Provider
+                  value={{
+                    ArcadeRewards,
+                    ArcadeTokenAccounts,
+                    setArcadeRewards,
+                    setArcadeTokenAccounts,
+                    getAccountBalances,
                   }}
-                  isOpen={modalState.isOpen}
-                  closeModal={() => setModalState({ isOpen: false })}
-                />
-              </DemoBalanceContext.Provider>
+                >
+                  <MissionItemModal
+                    t={t}
+                    data={MissionState}
+                    account={{
+                      arcade: ArcadeTokenAccounts.arcade,
+                      xarcade: ArcadeTokenAccounts.xarcade,
+                      rewards: ArcadeRewards,
+                    }}
+                    isOpen={modalState.isOpen}
+                    closeModal={() => setModalState({ isOpen: false })}
+                  />
+                </DemoBalanceContext.Provider>
+              </div>
+            </div>
+            <div className="col ps-0">
+              <Footer />
             </div>
           </div>
-          <div className="col ps-0">
-            <Footer />
-          </div>
         </div>
-      </div>
 
-      {/* <div className="col-12 col-sm-4 col-lg-4">
+        {/* <div className="col-12 col-sm-4 col-lg-4">
           <div className="card shadow-widget h-100">
             <div className="card-body">
               <div className="card-header-title">
@@ -806,8 +632,9 @@ const Dashboard = (props) => {
             </div>
           </div>
         </div> */}
+      </div>
+      {/* </Page> */}
     </div>
-    // {/* </Page> */}
   );
 };
 
