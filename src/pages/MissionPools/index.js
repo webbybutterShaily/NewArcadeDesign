@@ -154,7 +154,6 @@ const MissionPools = (props) => {
             </div>
 
 
-
         </div>
     );
 }

@@ -21,9 +21,9 @@ import * as serumCmn from '@project-serum/common';
 import * as spl from '@solana/spl-token';
 const request = require("axios");
 
-const AppBg = styled.div`
-    background-image:url(/assets/images/blur3.png)
-`;
+// const AppBg = styled.div`
+//     background-image:url(/assets/images/blur3.png)
+// `;
 
 const App = () => {
     const wallet = useWallet();
@@ -122,7 +122,7 @@ const App = () => {
             <DemoBalanceContext.Provider
                 value={{ ArcadeRewards, ArcadeTokenAccounts, setArcadeRewards, setArcadeTokenAccounts, getAccountBalances, publicKey, wallet, currency, setCurrency, direction, setDirection, amount, setAmount }}
             >
-                <AppBg className="main-bg-overlay" />
+                {/* <AppBg className="main-bg-overlay" /> */}
                 <div className="main-wrapper" id="outer-wrapper">
                     <WalletModalProvider>
                         <MobileMenu />

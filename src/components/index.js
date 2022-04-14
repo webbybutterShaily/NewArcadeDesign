@@ -4,6 +4,9 @@ export const Header = _Header;
 import _Footer from './footer'
 export const Footer = _Footer;
 
+import _SideBar from './sidebar'
+export const SideBar = _SideBar;
+
 import _Page from  './page';
 export const Page = _Page;
 

@@ -53,7 +53,6 @@ createTheme('solarized', {
 
 const Warchest = (props) => {
 
-
     const [nfts, setNFT] = React.useState([]);
 
     React.useEffect(() => {
@@ -112,7 +111,6 @@ const Warchest = (props) => {
             </div>
             <section className="hero-page-title-section">
             </section>
-
             <div className="row">
                 <div className="col-12">
                     <div className="card shadow-widget">
