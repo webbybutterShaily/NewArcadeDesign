@@ -8,7 +8,7 @@ import {
 
 /** pages component */
 import { 
-  Rangking,
+  Ranking,
   Dashboard,
   Warchest,
   Rewards,
@@ -22,7 +22,7 @@ const BaseRoute = () =>{
     return(
       
          <CustomRoutes>
-            <Route path="/ranking" element={<Rangking/>}/>
+            <Route path="/ranking" element={<Ranking/>}/>
             <Route path="/warchest" element={<Warchest/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/swap" element={<Swap/>}/>

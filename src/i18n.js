@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next"
 import languagedetector from "i18next-browser-languagedetector"
 
 import en from "./languages/en/translation.json"
+import de from "./languages/de/translation.json"
 import ar from "./languages/ar/translation.json"
 import es from "./languages/es/translation.json"
 import fr from "./languages/fr/translation.json"
@@ -14,20 +15,28 @@ import hi from "./languages/hi/translation.json"
 
 const resources = {
     en: { translation: en  },
+    de: {translation: de},
     ar: { translation: ar },
     es: { translation: es },
     fr: { translation: fr },
     ko: { translation: ko },
     zhCN: { translation: zhCN },
     zhTW: { translation: zhTW },
-    hi:{translation:hi}
+    hi : { translation: hi }
 }
+
+const options = {
+    order: ['querystring', 'navigator'],
+    lookupQuerystring: 'lng'
+  }
 
 i18n
     .use(initReactI18next)
     .use(languagedetector)
     .init({
         resources,
+        detection:options,
+        fallbackLng: "en",
         // lng:"hi",
         interpolation: {
             escapeValue: false // react already safes from xss

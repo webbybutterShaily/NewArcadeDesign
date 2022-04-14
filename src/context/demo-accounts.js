@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const DemoBalanceContext = createContext(null);
+export const DemoBalanceContext = createContext();

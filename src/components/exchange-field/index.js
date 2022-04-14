@@ -75,7 +75,7 @@ const ExchangeField = (props) => {
 
             <div className='input-inline'>
                 {/* <input type={"text"} placeholder='0,00' ref={ref} id={`${props.label}_value`} /> */}
-                <NumberFormat thousandSeparator={true}  placeholder="000" className="some" inputmode="numeric" />
+                <NumberFormat thousandSeparator={true}  placeholder="000" className="some" inputMode="numeric" />
                 <span className='token-label'>
                     {props.token}
                 </span>

@@ -24,8 +24,7 @@
             "wallet_withdraw":"",
             "wallet_send": "",
             "rewards_balance":"",
-            "rewards_withdraw_button":"",
-            "platform_details_header":""
+            "rewards_withdraw_button":""
         },
         "mission_pools":{
             "html_page_title": "",

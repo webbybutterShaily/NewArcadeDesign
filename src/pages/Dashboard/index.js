@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useMemo, useState, useEffect, useContext } from 'react';
 import { Page, Carousel, MissionItem, MissionItemModal } from '../../components'
 import { Account, Keypair, LAMPORTS_PER_SOL, PublicKey, clusterApiUrl, Connection } from "@solana/web3.js";
 import { AccountInfo } from '@solana/spl-token'
@@ -16,22 +16,22 @@ const request = require("axios");
 const TOKEN_PROGRAM_ID = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
 
 const WidgetBottomComponent = (props) => {
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     const [modalState, setModalState] = useState({ isOpen: false });
     const [MissionState, setMissionState] = useState(
         {
-        _id: "",
-        mission_mint: "",
-        title: "",
-        max_pool_size: 0,
-        duration: 0,
-        expected_rewards: 0,
-        expected_rewards_coin: "",
-        game: "",
-        default_image: "",
-        description: ""
-    });
+            _id: "",
+            mission_mint: "",
+            title: "",
+            max_pool_size: 0,
+            duration: 0,
+            expected_rewards: 0,
+            expected_rewards_coin: "",
+            game: "",
+            default_image: "",
+            description: ""
+        });
 
     return (
         <div className="home-widget-bottom">
@@ -41,18 +41,13 @@ const WidgetBottomComponent = (props) => {
 }
 
 const Dashboard = (props) => {
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const opts = {
         preflightCommitment: "processed"
     }
-    const wallet = useWallet();
-    const anchorWallet = useAnchorWallet();
-    const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
-    const [totalArcedeTokens, setTotalArcedeTokens] = useState(0);
-    const [tokenAccounts, setTokenAccounts] = useState(undefined);
-    const [ArcadeTokenAccounts, setArcadeTokenAccounts] = useState({ arcade: 0, xarcade: 0 });
-    const [ArcadeRewards, setArcadeRewards] = useState({ unpaid: 0, total: 0 });
+    const { ArcadeTokenAccounts, setArcadeTokenAccounts, publicKey, ArcadeRewards } = useContext(
+        DemoBalanceContext
+    );
     /*const possibleFromWallets = tokenAccounts === undefined ? [] :
         tokenAccounts.filter((ta) => { console.log('ta.account', ta.account); 
         ta.account.mint.equals("") });*/
@@ -90,13 +85,7 @@ const Dashboard = (props) => {
         return accounts;
     }
 
-    async function getProvider() {
-        const connection = new Connection(clusterApiUrl("devnet"), opts.preflightCommitment);
-        const provider = new Provider(
-            connection, wallet, opts.preflightCommitment
-        )
-        return provider;
-    }
+
 
     const FAILED_TO_FIND_ACCOUNT = 'Failed to find token account';
     const INVALID_ACCOUNT_OWNER = 'Invalid account owner';
@@ -206,64 +195,40 @@ const Dashboard = (props) => {
         }
     }
 
-   /*async function listOwnedTokenAccounts() {
-        const accounts = await getOwnedTokenAccounts(connection, publicKey);
-        return accounts;
-    }*/
+    /*async function listOwnedTokenAccounts() {
+         const accounts = await getOwnedTokenAccounts(connection, publicKey);
+         return accounts;
+     }*/
     const asdf = useEffect(async () => {
-        
-        await getAccountBalances();
-        await getRewardBalances();
         await getMissionPool();
         return 0;
-    }, [wallet]);
-
-    useEffect( async () =>{
-        initTokenAccounts();
-        const tokenAccount = await serumCmn.getTokenAccount(getProvider(), new web3.PublicKey(wallet));
-          const balance = tokenAccount.amount.toNumber();
-          console.log("balance", balance);
-    },[wallet])
-
-    async function checkBalance(wallet, set) {
-        if (wallet === undefined) {
-            return;
-        }
-
-        const program = getSASProgram();
-        try {
-            setError(undefined);
-            const tokenAccount = await serumCmn.getTokenAccount(program.provider, new web3.PublicKey(wallet));
-            const balance = tokenAccount.amount.toNumber();
-            console.log("balance2",balance);
-            set(balance);
-        } catch (err) {
-            setError("Failed to read token balance");
-        }
-    }
+    }, []);
 
     ///////
 
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
 
-    async function getAccountBalances() {
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
 
-        if(publicKey){
-            const res = await request.get('http://api.private.arcade2earn.io/api/demo/wallet/RCade47ZKErNcQB1CgkpEZUEmyfsqi2qh21mSCWASgm')
-            setArcadeTokenAccounts(res.data)
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
         }
-    }
 
-    async function getRewardBalances() {
-        if(publicKey){
-            const res = await request.get('http://api.private.arcade2earn.io/api/demo/rewards/RCade47ZKErNcQB1CgkpEZUEmyfsqi2qh21mSCWASgm')
-            setArcadeRewards({ unpaid: res.data.unpaid, total: res.data.total })
-        }
+        return array;
     }
 
     async function getMissionPool() {
         console.log("getMissionPool")
         const res = await request.get('http://api.private.arcade2earn.io/api/demo/missions')
-        setArcadeMissions(res.data)
+
+        setArcadeMissions(shuffle(res.data))
         console.log("res      ========================================== ")
     }
 
@@ -279,7 +244,7 @@ const Dashboard = (props) => {
                             <div className="dashboard-widget-body">
                                 <div className="list-item">
                                     <div className="list-label">
-                                    Address
+                                        Address
                                     </div>
                                     <div className="list-value">
                                         {publicKey ? publicKey.toBase58() : "xxxxxxxxxxxxxxxxx"}
@@ -287,7 +252,7 @@ const Dashboard = (props) => {
                                 </div>
                                 <div className="list-item">
                                     <div className="list-label">
-                                    {t('pages.dashboard.wallet_header')} ARCADE Balance
+                                        {t('pages.dashboard.wallet_header')} ARCADE Balance
                                     </div>
                                     <div className="list-value">
                                         <span className='balance-text'>{ArcadeTokenAccounts.arcade} ARCADE</span>
@@ -320,7 +285,7 @@ const Dashboard = (props) => {
                             <div className="dashboard-widget-body">
                                 <div className="list-item">
                                     <div className="list-label">
-                                    {t('pages.dashboard.rewards_balance')}
+                                        {t('pages.dashboard.rewards_balance')}
                                     </div>
                                     <div className="list-value">
                                         <span className='balance-text'>{ArcadeRewards.unpaid} xARCADE</span>
@@ -348,53 +313,31 @@ const Dashboard = (props) => {
                     <div className="card shadow-widget h-100">
                         <div className="card-body">
                             <div className="card-header-title">
-                                <h3 className="card-title text-center text-gradient">{t('pages.dashboard.bonus_pool_rankings_header')}</h3>
+                                <h3 className="card-title text-center text-gradient">{t('pages.dashboard.platform_details_header')}</h3>
                             </div>
                             <div className="dashboard-widget-body">
                                 <div className="list-item">
                                     <div className="list-label">
                                         Mission Pool Count
                                     </div>
-                                </div>
-                                <div className="list-item">
-                                    <div className="list-label">
-                                        Number
+                                    <div className='list-value'>
+                                        9 Missions Active
                                     </div>
                                 </div>
                                 <div className="list-item">
                                     <div className="list-label">
-                                        Rank
+                                        Total $xARCADE Deposited
                                     </div>
-                                </div>
-
-                                <div className="list-item mt-4">
-                                    <div className="list-label">
-                                        Mission Pool Count
+                                    <div className='list-value'>
+                                        5,215 $xARCADE
                                     </div>
                                 </div>
                                 <div className="list-item">
                                     <div className="list-label">
-                                        Number
+                                        Total $ARCADE Locked
                                     </div>
-                                </div>
-                                <div className="list-item">
-                                    <div className="list-label">
-                                        Rank
-                                    </div>
-                                </div>
-                                <div className="list-item mt-4">
-                                    <div className="list-label">
-                                        Mission Pool Count
-                                    </div>
-                                </div>
-                                <div className="list-item">
-                                    <div className="list-label">
-                                        Number
-                                    </div>
-                                </div>
-                                <div className="list-item">
-                                    <div className="list-label">
-                                        Rank
+                                    <div className='list-value'>
+                                        141,752 $ARCADE
                                     </div>
                                 </div>
                             </div>
@@ -409,19 +352,15 @@ const Dashboard = (props) => {
             <div className="row">
                 <div className="col-12">
                     <Carousel>
-                        {ArcadeMissions.map((item, i) => <MissionItem key={i} data={item} t={t} topLogo={false} onAction={() => setModalState({ isOpen: true })} bottomComponent={<WidgetBottomComponent data={item}  />} />)}
+                        {ArcadeMissions.map((item, i) => <MissionItem key={i} data={item} t={t} topLogo={false} onAction={() => setModalState({ isOpen: true })} bottomComponent={<WidgetBottomComponent data={item} />} />)}
                     </Carousel>
                 </div>
             </div>
-            <DemoBalanceContext.Provider
-                value={{ ArcadeRewards, ArcadeTokenAccounts, setArcadeRewards, setArcadeTokenAccounts, getAccountBalances }}
-            >
-                <MissionItemModal
-                    t={t}
-                    data={MissionState} account={{ arcade: ArcadeTokenAccounts.arcade, xarcade: ArcadeTokenAccounts.xarcade, rewards: ArcadeRewards }}
-                    isOpen={modalState.isOpen}
-                    closeModal={() => setModalState({ isOpen: false })} />
-            </DemoBalanceContext.Provider>
+            <MissionItemModal
+                t={t}
+                data={MissionState} account={{ arcade: ArcadeTokenAccounts.arcade, xarcade: ArcadeTokenAccounts.xarcade, rewards: ArcadeRewards }}
+                isOpen={modalState.isOpen}
+                closeModal={() => setModalState({ isOpen: false })} />
         </Page>
     );
 }

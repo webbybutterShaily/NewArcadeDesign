@@ -1,8 +1,8 @@
 import _Dashboard from './Dashboard';
 export const Dashboard = _Dashboard;
 
-import _Rangking from './Rangking';
-export const Rangking = _Rangking;
+import _Ranking from './Ranking';
+export const Ranking = _Ranking;
 
 import _MissionPools from './MissionPools';
 export const MissionPools = _MissionPools;

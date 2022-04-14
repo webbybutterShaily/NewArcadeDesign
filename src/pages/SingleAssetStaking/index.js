@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, createRef } from 'react';
+import React, { useState, useRef, useEffect, createRef, useContext } from 'react';
 import { Page, ExchangeField } from '../../components'
 import styled from 'styled-components';
 
@@ -33,25 +33,11 @@ import { useTranslation } from 'react-i18next';
 
 
 const SingleAssetStaking = (props) => {
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
-    const [ArcadeTokenAccounts, setArcadeTokenAccounts] = useState({ arcade: 0, xarcade: 0 });
-    async function getAccountBalances() {
-        const res = await request.get('http://api.private.arcade2earn.io/api/demo/wallet/RCade47ZKErNcQB1CgkpEZUEmyfsqi2qh21mSCWASgm')
-        setArcadeTokenAccounts(res.data)
-    }
-    const [currency, setCurrency] = useState({
-        from: "ARCADE",
-        to: 'xARCADE'
-    })
-    const [direction, setDirection] = useState(false)
-    const [amount, setAmount] = useState(0);
-    
-
-    const asdf = useEffect(async () => {
-        await getAccountBalances();
-        return 0;
-    }, []);
+    const { ArcadeRewards, ArcadeTokenAccounts, setArcadeRewards, setArcadeTokenAccounts, getAccountBalances, publicKey, wallet, currency, setCurrency, direction, setDirection, amount, setAmount } = useContext(
+        DemoBalanceContext
+    );
 
     return (
         <Page title={t('pages.single_asset_staking.html_page_title')}>
@@ -59,13 +45,13 @@ const SingleAssetStaking = (props) => {
                 <div className='col-sm-6 mx-auto'>
                     <div className='card shadow-widget gradient-card'>
                         <div className='card-body'>
-                        <DemoBalanceContext.Provider 
-                value={{ ArcadeTokenAccounts, setArcadeTokenAccounts, currency, setCurrency, direction, setDirection, amount, setAmount }}
-            >
-                            <StepWizard>
-                                <SAS t={t}/>
-                                <SuccessSwap />
-                            </StepWizard>
+                            <DemoBalanceContext.Provider
+                                value={{ ArcadeTokenAccounts, setArcadeTokenAccounts, currency, setCurrency, direction, setDirection, amount, setAmount }}
+                            >
+                                <StepWizard>
+                                    <SAS t={t} />
+                                    <SuccessSwap />
+                                </StepWizard>
                             </DemoBalanceContext.Provider>
                         </div>
                     </div>

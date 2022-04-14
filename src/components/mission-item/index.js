@@ -38,6 +38,9 @@ const MissionItem = (props) => {
             case "Altered_State_Machines":
                 setGameImage("assets/images/asm/asm-logo.png");
                 break;
+            case "Heroes_of_Mavia":
+                setGameImage("https://statics.mavia.com/landing/public/images/logo-dark.svg?w=128&q=75")
+                break;
             default :
                 setGameImage("assets/images/star-atlas.png")
         }
@@ -94,13 +97,11 @@ const MissionItem = (props) => {
                                 </div>
                                 <div className="sponsored-list">
                                     <ul className="list-inline d-flex justify-content-sm-around">
-                                        <li className="sponsored-item">
-                                            <img src="https://www.arcade2earn.io/wp-content/uploads/2022/01/25-300x300.png" />
-                                        </li>
-                                        <li className="sponsored-item">
-                                            <img src="https://www.arcade2earn.io/wp-content/uploads/2022/01/26-300x300.png" />
-                                        </li>
-
+                                        {props.data.sponsors.map((sponsors, i)=>
+                                            <li className="sponsored-item">
+                                                <img src={sponsors.company_logo}/>
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
                             </>

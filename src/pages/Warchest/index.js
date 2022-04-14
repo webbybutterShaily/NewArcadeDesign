@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Page, Carousel, MissionItem, MissionItemModal } from '../../components'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,10 +8,10 @@ import DataTable, { createTheme } from 'react-data-table-component';
 
 const request = require('axios');
 const WidgetBottomComponent = (props) => {
-    return(
+    return (
         <div className="home-widget-bottom pt-3">
             <a href='#' className='btn btn-action px-4'>
-                <FontAwesomeIcon icon={faInfoCircle}/>
+                <FontAwesomeIcon icon={faInfoCircle} />
                 <span>Details</span>
             </a>
         </div>
@@ -19,8 +19,8 @@ const WidgetBottomComponent = (props) => {
 }
 
 const random_data = (textArray) => {
-    const index = Math.floor(Math.random()*textArray.length);
-   
+    const index = Math.floor(Math.random() * textArray.length);
+
     return textArray[index];
 }
 
@@ -52,7 +52,7 @@ createTheme('solarized', {
 }, 'dark');
 
 const Warchest = (props) => {
-    
+
 
     const [nfts, setNFT] = React.useState([]);
 
@@ -70,7 +70,7 @@ const Warchest = (props) => {
 
     if (!nfts) return null;
 
-    return(
+    return (
         <Page title="Warchest">
             <div className="row">
                 <div className="col-12 col-sm-4 col-lg-4">
@@ -79,7 +79,7 @@ const Warchest = (props) => {
                             <div className="card-header-title">
                                 <h3 className="card-title text-center text-gradient">Wallet</h3>
                             </div>
-                            <div className="card-text"> 
+                            <div className="card-text">
                                 {nfts.length} Ships
                             </div>
                         </div>
@@ -91,8 +91,8 @@ const Warchest = (props) => {
                             <div className="card-header-title">
                                 <h3 className="card-title text-center text-gradient">Total xArcade Pooled</h3>
                             </div>
-                            <div className="card-text"> 
-                                5000 xArcade
+                            <div className="card-text">
+                                5,215 xArcade
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ const Warchest = (props) => {
                             <div className="card-header-title">
                                 <h3 className="card-title text-center text-gradient">Total Rewards Earned</h3>
                             </div>
-                            <div className="card-text"> 
+                            <div className="card-text">
                                 199900 xArcade
                             </div>
                         </div>
@@ -112,12 +112,12 @@ const Warchest = (props) => {
             </div>
             <section className="hero-page-title-section">
             </section>
-            
+
             <div className="row">
                 <div className="col-12">
                     <div className="card shadow-widget">
                         <div className="card-body">
-                        <div className="card-header-title">
+                            <div className="card-header-title">
                                 <h3 className="card-title text-center text-gradient">Star Atlas NFTs</h3>
                             </div>
                             <DataTable

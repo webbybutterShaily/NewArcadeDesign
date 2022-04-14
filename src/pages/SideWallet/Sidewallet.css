@@ -65,5 +65,12 @@ img.icon {
 
 button.accordion-button.second {
     background-color: #1e2128;
+    color:gray;
+}
+button.accordion-button::after {
+    color: gray;
+}
+.accordion-button:not(.collapsed)::after{
+    color: gray;
 }
 .address:hover{cursor: pointer;}

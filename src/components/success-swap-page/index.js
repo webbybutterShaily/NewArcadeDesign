@@ -6,11 +6,14 @@ const SuccessSwap = (props) => {
     const { direction, amount} = useContext(
         DemoBalanceContext
       );
+      const xArcadeAmount = amount - (amount * .01);
+      console.log(direction);
+      console.log(amount);
       const result = () =>{
           if(direction){
               return <p><strong>{amount}</strong>xArcade was swapped for {amount} Arcade</p>
           }else{
-              return <p><strong>{amount}</strong>Arcade was swapped for {amount - (amount * .01)} xArcade</p>
+              return (<p><strong>{amount}</strong>$Arcade was swapped for {xArcadeAmount} xArcade</p>)
           }
       }
       return(
